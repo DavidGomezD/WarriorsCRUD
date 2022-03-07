@@ -25,9 +25,7 @@
         <select class="form-select" id="estudiante_id" name="estudiante_id">
             @foreach($estudiantes as $estudiante)
                 <option value="{{$estudiante->id}}">
-                    {{$estudiante->id.
-                        ' '.
-                        $estudiante->nombre.
+                    {{$estudiante->nombre.
                         ' '.
                         $estudiante->apellido_paterno.
                         ' '.

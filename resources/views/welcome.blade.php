@@ -24,7 +24,7 @@
             <a class="nav-link" href="/estudiante">Estudiantes</a>
             <a class="nav-link" href="/grupo">Grupos</a>
             <a class="nav-link" href="/semestre">Semestres</a>
-            <a class="nav-link" href="/turno">Turno</a>      
+            <a class="nav-link" href="/turno">Turnos</a>      
         </div>
         </div>
     </div>

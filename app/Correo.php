@@ -10,4 +10,12 @@ class Correo extends Model
     public function estudiante(){
         return $this->belongsTo('App\Estudiante');
     }
+
+    public function guardar($request, $estudianteId)
+    {
+        $correo = new Correo;
+        $correo->estudiante_id = $estudianteId;
+        $correo->correo = $request->correo;
+        $correo->save();
+    }
 }

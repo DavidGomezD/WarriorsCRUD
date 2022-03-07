@@ -17,7 +17,6 @@
 <table class="table table-sm table-bordered table-hover">
     <thead>
         <tr>
-            <th>Id</th>
             <th>Semestre</th>
             <th>Editar</th>
             <th>Borrar</th>
@@ -26,7 +25,6 @@
     <tbody>
     @foreach($semestres as $semestreDatos)
         <tr>
-            <td>{{$semestreDatos->id}}</td>
             <td>{{$semestreDatos->semestre}}</td>
             <td>     
                 <a class="btn btn-primary" href="{{ url('/semestre/'.$semestreDatos->id.'/edit') }}">

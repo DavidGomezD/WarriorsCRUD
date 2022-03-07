@@ -28,4 +28,14 @@ class Grupo extends Model
 
     //Fin de relaciones
 
+
+    public function guardar($request)
+    {
+        $grupo = new Grupo;
+        $grupo->grupo = $request->grupo;
+        $grupo->turno_id = $request->turno_id;
+        $grupo->semestre_id = $request->semestre_id;
+        $grupo->save();
+    }
+
 }

@@ -12,4 +12,11 @@ class Turno extends Model
     public function grupos(){
         return $this->hasMany(Grupo::class);
     }
+
+    public function guardar($request)
+    {
+        $turno = new Turno;
+        $turno->turno = $request->turno;
+        $turno->save();
+    }
 }

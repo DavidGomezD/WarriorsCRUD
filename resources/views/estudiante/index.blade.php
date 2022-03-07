@@ -18,7 +18,6 @@
 <table class="table table-sm table-bordered table-hover">
     <thead>
         <tr>
-            <th>Id</th>
             <th>Nombre</th>
             <th>Apellido paterno</th>
             <th>Apellido materno</th>
@@ -34,7 +33,6 @@
     @foreach($estudiantes as $estudianteDatos)
     
         <tr>
-            <td>{{$estudianteDatos->id}}</td>
             <td>{{$estudianteDatos->nombre}}</td>
             <td>{{$estudianteDatos->apellido_paterno}}</td>
             <td>{{$estudianteDatos->apellido_materno}}</td>
