@@ -4,14 +4,13 @@ namespace App\Http\Controllers;
 
 use App\Estudiante;
 use Illuminate\Http\Request;
+use App\Fecha;
+use App\Correo;
+use App\Telefono;
 
 class EstudianteController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+
     public function index()
     {
         //David: Almacena la informacion de la tabla estudiantes
@@ -40,14 +39,27 @@ class EstudianteController extends Controller
      */
     public function store(Request $request)
     {
-        //David: Evita que se mande el _token
-        $estudianteDatos=request()->except('_token');
+        //Inserta los datos
+        $estudiante = new Estudiante;
+        $estudiante->nombre = $request->nombre;
+        $estudiante->apellido_paterno = $request->apellido_paterno;
+        $estudiante->apellido_materno = $request->apellido_materno;
+        $estudiante->save();
 
-        //David: Inserta los datos del formulario, en la tabla estudiantes 
-        Estudiante::insert($estudianteDatos);
+        $fecha = new Fecha;
+        $fecha->estudiante_id = $estudiante->id;
+        $fecha->fecha_nacimiento = $request->fecha_nacimiento;
+        $fecha->save();
 
-        //David: Nos muestra los datos guardados
-        //return response()->json($estudianteDatos);
+        $telefono = new Telefono;
+        $telefono->estudiante_id = $estudiante->id;
+        $telefono->telefono = $request->telefono;
+        $telefono->save();
+
+        $correo = new Correo;
+        $correo->estudiante_id = $estudiante->id;
+        $correo->correo = $request->correo;
+        $correo->save();
 
         return redirect('estudiante');
     }
@@ -87,16 +99,25 @@ class EstudianteController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //David: Actualizar los datos
-        //David: Nos manda toda la informacion menos token y method
-        $estudianteNuevosDatos=request()->except(['_token', '_method']);
-        //David: Actualiza
-        Estudiante::where('id', '=', $id)->update($estudianteNuevosDatos);
+        //Actualizar los datos
 
-        //David: Nos mostrara los datos que modificamos
-        $estudianteDatos = Estudiante::findOrFail($id);
+        $estudiante = Estudiante::find($id);
+        
+        $estudiante->nombre = $request->nombre;
+        $estudiante->apellido_paterno = $request->apellido_paterno;
+        $estudiante->apellido_materno = $request->apellido_materno;
+        $estudiante->save();
 
-        return view('estudiante.edit', compact('estudianteDatos'));
+        $estudiante->fecha->fecha_nacimiento = $request->fecha_nacimiento;
+        $estudiante->fecha->save();
+
+        $estudiante->telefono->telefono = $request->telefono;
+        $estudiante->telefono->save();
+
+        $estudiante->correo->correo = $request->correo;
+        $estudiante->correo->save();
+
+        return redirect('estudiante');
     }
 
     /**
@@ -107,10 +128,10 @@ class EstudianteController extends Controller
      */
     public function destroy($id)
     {
-        //David: Borra el estudiante con el id
+        //David: Borra
         Estudiante::destroy($id);
-
-        //David: Nos regresa a la vista estudiante
+    
         return redirect('estudiante');
     }
+
 }

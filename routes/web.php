@@ -20,3 +20,8 @@ Route::resource('estudiante', 'EstudianteController');
 Route::resource('fecha', 'FechaController');
 Route::resource('telefono', 'TelefonoController');
 Route::resource('correo', 'CorreoController');
+Route::resource('turno', 'TurnoController');
+Route::resource('semestre', 'SemestreController');
+Route::resource('grupo', 'GrupoController');
+
+Route::resource('inscripcion', 'InscripcionController');

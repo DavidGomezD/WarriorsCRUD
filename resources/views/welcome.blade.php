@@ -21,25 +21,20 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
         <div class="navbar-nav">
-            <a class="nav-link active" aria-current="page" href="/">Inicio</a>
-            <a class="nav-link" href="/estudiante">Estudiante</a>
-            <a class="nav-link" href="/estudiante/create">Nuevo estudiante</a>
-            <a class="nav-link" href="/fecha">Fecha</a>
-            <a class="nav-link" href="/fecha/create">Nueva fecha</a>
-            <a class="nav-link" href="/telefono">Teléfono</a>
-            <a class="nav-link" href="/telefono/create">Nuevo teléfono</a>
-            <a class="nav-link" href="/correo">Correo</a>
-            <a class="nav-link" href="/correo/create">Nuevo correo</a>
+            <a class="nav-link" href="/estudiante">Estudiantes</a>
+            <a class="nav-link" href="/grupo">Grupos</a>
+            <a class="nav-link" href="/semestre">Semestres</a>
+            <a class="nav-link" href="/turno">Turno</a>      
         </div>
         </div>
     </div>
     </nav>
 
-    @yield('content')
-    
+    <div class="container">
+      @yield('content')
     </div>
 
-    
+    </div>
 
     <!-- Optional JavaScript; choose one of the two! -->
 

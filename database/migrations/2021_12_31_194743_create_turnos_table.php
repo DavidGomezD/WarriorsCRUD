@@ -13,7 +13,11 @@ class CreateTurnosTable extends Migration
      */
     public function up()
     {
-        
+        Schema::create('turnos', function (Blueprint $table) {
+            $table->bigIncrements('id');
+            $table->string('turno', 10)->unique(); //No se puede repetir
+            $table->timestamps();
+            });
     }
 
     /**
@@ -23,6 +27,6 @@ class CreateTurnosTable extends Migration
      */
     public function down()
     {
-        
+        Schema::dropIfExists('turnos');
     }
 }

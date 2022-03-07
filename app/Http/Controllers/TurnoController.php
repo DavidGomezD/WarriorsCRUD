@@ -14,7 +14,11 @@ class TurnoController extends Controller
      */
     public function index()
     {
-        //
+        //David: Almacena la informacion de la tabla turno
+        $datos['turnos']=Turno::all();
+
+        //David:Retorna la vista dentro de la carpeta turno con nombre index
+        return view('turno.index', $datos);
     }
 
     /**
@@ -24,7 +28,8 @@ class TurnoController extends Controller
      */
     public function create()
     {
-        //
+        //David: nos manda al create
+        return view('turno.create');
     }
 
     /**
@@ -35,7 +40,13 @@ class TurnoController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        //David: Evita que se mande el _token
+        $turnoDatos=request()->except('_token');
+
+        //David: Inserta los datos del formulario, en la tabla turno
+        Turno::insert($turnoDatos);
+
+        return redirect('turno');
     }
 
     /**
@@ -55,9 +66,14 @@ class TurnoController extends Controller
      * @param  \App\Turno  $turno
      * @return \Illuminate\Http\Response
      */
-    public function edit(Turno $turno)
+    public function edit($id)
     {
-        //
+        //David: Regresa toda la informacion con ese id
+        $turnoDatos = Turno::findOrFail($id);
+
+        //David: Manda los datos a la vista turno.edit
+        return view('turno.edit', compact('turnoDatos'));
+    
     }
 
     /**
@@ -67,9 +83,20 @@ class TurnoController extends Controller
      * @param  \App\Turno  $turno
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Turno $turno)
+    public function update(Request $request, $id)
     {
-        //
+        //David: Actualizar los datos
+        //David: Nos manda toda la informacion menos token y method
+        $turnoNuevosDatos=request()->except(['_token', '_method']);
+
+        //David: Actualiza
+        Turno::where('id', '=', $id)->update($turnoNuevosDatos);
+
+        //David: Nos mostrara los datos que modificamos
+        $turnoDatos = Turno::findOrFail($id);
+
+        //David: Nos regresa a la vista turno
+        return redirect('turno');
     }
 
     /**
@@ -78,8 +105,12 @@ class TurnoController extends Controller
      * @param  \App\Turno  $turno
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Turno $turno)
+    public function destroy($id)
     {
-        //
+        //David: Borra el turno con el id
+        Turno::destroy($id);
+
+        //David: Nos regresa a la vista turno
+        return redirect('turno');
     }
 }

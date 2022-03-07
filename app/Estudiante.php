@@ -4,22 +4,33 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 use HasFactory;
+use App\Fecha;
+use App\Telefono;
+use App\Correo;
+use App\Grupo;
 
 class Estudiante extends Model
 {
+    //Relaciones 1 a 1 fecha, telefono y correo
 
-    //Relacion 1 a 1 con fecha
     public function fecha(){
-        return $this->hasOne('App\Fecha');
-    }
-    
-    //Relacion 1 a 1 con telefono
-    public function telefono(){
-        return $this->hasOne('App\Telefono');
+        return $this->hasOne(Fecha::class);
     }
 
-    //Relacion 1 a 1 con correo
-    public function correo(){
-        return $this->hasOne('App\Correo');
+    public function telefono(){
+        return $this->hasOne(Telefono::class);
     }
+
+    public function correo(){
+        return $this->hasOne(Correo::class);
+    }
+
+    //Relacion muchos a muchos
+
+    public function grupos(){
+        return $this->belongsToMany(Grupo::class);
+    }
+
+    //Fin relaciones
+
 }

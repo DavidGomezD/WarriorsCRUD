@@ -13,7 +13,13 @@ class CreateSemestresTable extends Migration
      */
     public function up()
     {
-        
+        Schema::create('semestres', function (Blueprint $table) {
+            $table->bigIncrements('id');
+            //David: 0 a 255 valores de unsignedTinyInteger
+            $table->string('semestre', 30)->unique(); 
+            $table->timestamps();
+            });
+            
     }
 
     /**
@@ -23,6 +29,6 @@ class CreateSemestresTable extends Migration
      */
     public function down()
     {
-        
+        Schema::dropIfExists('semestres');
     }
 }
