@@ -16,7 +16,7 @@ class CreateFechasTable extends Migration
         Schema::create('fechas', function (Blueprint $table) {
             //David: Estructura de la tabla fechas en snake_case
             $table->bigIncrements('id');
-            $table->date('fecha_nacimiento'); //Se puede repetir relacion inversa 1:N
+            $table->date('fecha_nacimiento');
             $table->unsignedBigInteger('estudiante_id')
                 ->unique(); //No se puede repetir, relacion 1 a 1
             $table->timestamps();

@@ -8,7 +8,7 @@
 
 <div class="row mt-3 mb-1">
     <div class="col-2">
-        <a type="button" class="btn btn-primary" href="{{ url('/inscripcion/'.$grupo->id.'/edit') }}">
+        <a type="button" class="btn btn-primary" href="{{ url('/estudiante_grupo/'.$grupo->id.'/edit') }}">
             Modificar grupo
         </a>
     </div>
@@ -18,7 +18,6 @@
 
     <thead>
         <tr>
-            <th>Id</th>
             <th>Nombre</th> 
             <th>Apellido Paterno</th>
             <th>Apellido Materno</th>
@@ -29,7 +28,6 @@
 
     @foreach($grupo->estudiantes as $estudiante)
         <tr>
-            <td>{{$estudiante->id}}</td>
             <td>{{$estudiante->nombre}}</td>
             <td>{{$estudiante->apellido_paterno}}</td>
             <td>{{$estudiante->apellido_materno}}</td>

@@ -24,4 +24,4 @@ Route::resource('turno', 'TurnoController');
 Route::resource('semestre', 'SemestreController');
 Route::resource('grupo', 'GrupoController');
 
-Route::resource('inscripcion', 'InscripcionController');
+Route::resource('estudiante_grupo', 'EstudianteGrupoController');

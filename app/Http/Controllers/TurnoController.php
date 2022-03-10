@@ -41,8 +41,9 @@ class TurnoController extends Controller
 
     public function update(Request $request, $id)
     {
-        $turnoNuevosDatos=request()->except(['_token', '_method']);
-        Turno::where('id', '=', $id)->update($turnoNuevosDatos);
+        $turno = Turno::find($id);
+        $turno->turno = $request->turno;
+        $turno->save();
 
         return redirect('turno');
     }

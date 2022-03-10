@@ -14,11 +14,10 @@
 
         <div class="mb-3">
             <label class="form-label">{{'Semestre'}}
-                <input type="text" class="form-control" name="semestre" value="{{ $semestreDatos->semestre }}" required>
+                <input type="text" class="form-control" name="semestre" value="{{ $semestreDatos->semestre }}" required maxlength="30">
             </label>
         </div>
         
-
         <button type="submit" class="btn btn-success">Guardar</button> 
     </form>
     </div>

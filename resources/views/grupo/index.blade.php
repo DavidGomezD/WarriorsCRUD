@@ -32,7 +32,7 @@
             <td>{{$grupoDatos->turno->turno}}</td>
             <td>{{$grupoDatos->semestre->semestre}}</td>
             <td>
-                 <a class="btn btn-warning" href="{{ url('/inscripcion/'.$grupoDatos->id) }}">
+                 <a class="btn btn-warning" href="{{ url('/estudiante_grupo/'.$grupoDatos->id) }}">
                     Estudiantes
                 </a>       
             </td>

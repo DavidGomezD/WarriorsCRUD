@@ -18,7 +18,7 @@ class CreateCorreosTable extends Migration
             $table->bigIncrements('id');
             //David: 64 local + 1 @ + 255 dominio
             $table->string('correo', 320)
-                ->unique(); //No se puede repetir, relacion 1 a 1
+                ->unique(); //No se puede repetir
             $table->unsignedBigInteger('estudiante_id')
                 ->unique(); //No se puede repetir, relacion 1 a 1
             $table->timestamps();

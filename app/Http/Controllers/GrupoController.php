@@ -43,11 +43,6 @@ class GrupoController extends Controller
         return redirect('grupo');
     }
 
-    public function show(Grupo $grupo)
-    {
-        //
-    }
-
     public function edit($id)
     {
         //$grupoDatos = Grupo con el id
@@ -69,8 +64,11 @@ class GrupoController extends Controller
     //Actualiza
     public function update(Request $request, $id)
     {
-        $grupoNuevosDatos=request()->except(['_token', '_method']);
-        Grupo::where('id', '=', $id)->update($grupoNuevosDatos);
+        $grupo = Grupo::find($id);
+        $grupo->grupo = $request->grupo;
+        $grupo->semestre_id = $request->semestre_id;
+        $grupo->turno_id = $request->turno_id;
+        $grupo->save();
 
         return redirect('grupo');
     }

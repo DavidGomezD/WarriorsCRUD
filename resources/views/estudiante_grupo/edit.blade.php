@@ -8,7 +8,7 @@
     </div>
 </div>
 
-<form action=" {{ url('/inscripcion/'.$grupo->id) }} " method="post" enctype="multipart/form-data">
+<form action=" {{ url('/estudiante_grupo/'.$grupo->id) }} " method="post" enctype="multipart/form-data">
     {{ csrf_field() }}
     {{ method_field('PATCH') }}
 

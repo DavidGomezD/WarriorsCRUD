@@ -17,8 +17,7 @@ class CreateTelefonosTable extends Migration
             //David: Estructura de la tabla telefonos en snake_case
             $table->bigIncrements('id');
             //David:unsigned es para que solo sea positivo 
-            $table->unsignedBigInteger('telefono')
-                ->unique(); //No se puede repetir, relacion 1 a 1
+            $table->unsignedBigInteger('telefono');
             //Davi:llave foranea
             $table->unsignedBigInteger('estudiante_id')
                 ->unique(); //No se puede repetir, relacion 1 a 1

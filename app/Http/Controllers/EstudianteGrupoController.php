@@ -6,14 +6,14 @@ use Illuminate\Http\Request;
 use App\Grupo;
 use App\Estudiante;
 
-class InscripcionController extends Controller
+class EstudianteGrupoController extends Controller
 {
-    //Muestra a los alumnos inscritos en el grupo
+
     public function show($id)
     {
         $grupo = Grupo::find($id); 
         
-        return view('inscripcion.index')
+        return view('estudiante_grupo.index')
             ->with('grupo', $grupo);
     }
 
@@ -26,7 +26,7 @@ class InscripcionController extends Controller
 
         //$accion = 'Inscribir';
         
-        return view('inscripcion.edit')
+        return view('estudiante_grupo.edit')
             ->with('grupo', $grupo)
             ->with('estudiantes', $estudiantes);
     }
@@ -42,7 +42,7 @@ class InscripcionController extends Controller
             $grupo->estudiantes()->detach($request->estudiante_id);
         }
 
-        return view('inscripcion.index')
+        return view('estudiante_grupo.index')
             ->with('grupo', $grupo);
     }
 

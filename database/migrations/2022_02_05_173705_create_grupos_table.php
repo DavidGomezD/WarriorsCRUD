@@ -16,7 +16,7 @@ class CreateGruposTable extends Migration
         Schema::create('grupos', function (Blueprint $table) {
             //David: Estructura de la tabla grupos
             $table->bigIncrements('id');
-            $table->String('grupo');
+            $table->String('grupo', 100);
             $table->unsignedBigInteger('turno_id'); //Relacion N:1
             $table->unsignedBigInteger('semestre_id'); // Relacion N:1
             $table->timestamps();
@@ -33,7 +33,6 @@ class CreateGruposTable extends Migration
             ->on('semestres')
             ->onDelete('cascade');
             });
-            
     }
 
     /**

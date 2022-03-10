@@ -15,17 +15,17 @@
             <div class="col">
                 <div class="mb-3">
                     <label class="form-label">{{'Nombre'}}
-                        <input type="text" class="form-control" name="nombre" value="{{ $estudianteDatos->nombre }}" required>
+                        <input type="text" class="form-control" name="nombre" value="{{ $estudianteDatos->nombre }}" required required maxlength="50">
                     </label>
                 </div>
                 <div class="mb-3">
                     <label class="form-label">{{'Apellido Paterno'}}
-                        <input type="text" class="form-control" name="apellido_paterno" value="{{ $estudianteDatos->apellido_paterno }}" required>
+                        <input type="text" class="form-control" name="apellido_paterno" value="{{ $estudianteDatos->apellido_paterno }}" required required maxlength="50">
                     </label>
                 </div>
                 <div class="mb-3">
                     <label class="form-label">{{'Apellido Materno'}}
-                        <input type="text" class="form-control" name="apellido_materno" value="{{ $estudianteDatos->apellido_materno }}" required>
+                        <input type="text" class="form-control" name="apellido_materno" value="{{ $estudianteDatos->apellido_materno }}" required required maxlength="50">
                     </label>
                 </div>
             </div>
@@ -42,8 +42,11 @@
                 </div>
                 <div class="mb-3">
                     <label class="form-label"> {{'Correo'}} 
-                        <input type="email" size="320" class="form-control" name="correo" value="{{ $estudianteDatos->correo->correo }}" required>
+                        <input type="email" class="form-control" name="correo" value="{{ $estudianteDatos->correo->correo }}" required required maxlength="320">
                     </label>
+                    @error('correo')
+                        <div class="alert alert-danger mt-1">{{ $message }}</div>
+                    @enderror
                 </div>
             </div>
         </div>

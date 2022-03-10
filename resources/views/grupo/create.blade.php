@@ -14,7 +14,7 @@
     {{ csrf_field() }}
         <div class="mb-3">
             <label class="form-label"> {{'Grupo'}} 
-            <input type="text" class="form-control" name="grupo" required>
+            <input type="text" class="form-control" name="grupo" required maxlength="100">
             </label>
         </div>
 

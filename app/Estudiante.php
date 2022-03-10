@@ -11,6 +11,7 @@ use App\Grupo;
 
 class Estudiante extends Model
 {
+
     //Relaciones 1 a 1 fecha, telefono y correo
 
     public function fecha(){
@@ -33,42 +34,44 @@ class Estudiante extends Model
 
     //Fin relaciones
 
-    public function guardar($request)
+    public function guardarDatosEstudiante($request)
     {
-        $estudiante = new Estudiante;
-        $estudiante->nombre = $request->nombre;
-        $estudiante->apellido_paterno = $request->apellido_paterno;
-        $estudiante->apellido_materno = $request->apellido_materno;
-        $estudiante->save();
+        $this->nombre = $request->nombre;
+        $this->apellido_paterno = $request->apellido_paterno;
+        $this->apellido_materno = $request->apellido_materno;
+        $this->save();
 
-        $guardarFecha = new Fecha;
-        $guardarFecha->guardar($request, $estudiante->id);
-
-        $guardarTelefono = new Telefono;
-        $guardarTelefono->guardar($request, $estudiante->id);
-
-        $guardarCorreo = new Correo;
-        $guardarCorreo->guardar($request, $estudiante->id);
+        $fecha = new Fecha;
+        $fecha->estudiante_id = $this->id;
+        $fecha->fecha_nacimiento = $request->fecha_nacimiento;
+        $fecha->save();
         
+        $telefono = new Telefono;
+        $telefono->estudiante_id = $this->id;
+        $telefono->telefono = $request->telefono;
+        $telefono->save();
+
+        $correo = new Correo;
+        $correo->estudiante_id = $this->id;
+        $correo->correo = $request->correo;
+        $correo->save();
     }
 
-    public function actualizar($request, $id)
-    {
-        $estudiante = Estudiante::find($id);
-        
-        $estudiante->nombre = $request->nombre;
-        $estudiante->apellido_paterno = $request->apellido_paterno;
-        $estudiante->apellido_materno = $request->apellido_materno;
-        $estudiante->save();
+    public function actualizarDatosEstudiante($request)
+    {   
+        $this->nombre = $request->nombre;
+        $this->apellido_paterno = $request->apellido_paterno;
+        $this->apellido_materno = $request->apellido_materno;
+        $this->save();
 
-        $estudiante->fecha->fecha_nacimiento = $request->fecha_nacimiento;
-        $estudiante->fecha->save();
+        $this->fecha->fecha_nacimiento = $request->fecha_nacimiento;
+        $this->fecha->save();
 
-        $estudiante->telefono->telefono = $request->telefono;
-        $estudiante->telefono->save();
+        $this->telefono->telefono = $request->telefono;
+        $this->telefono->save();
 
-        $estudiante->correo->correo = $request->correo;
-        $estudiante->correo->save();
+        $this->correo->correo = $request->correo;
+        $this->correo->save();
     }
 
 }

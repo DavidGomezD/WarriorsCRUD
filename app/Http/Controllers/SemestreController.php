@@ -45,8 +45,9 @@ class SemestreController extends Controller
     //Actualiza
     public function update(Request $request, $id)
     {
-        $semestreNuevosDatos=request()->except(['_token', '_method']);
-        Semestre::where('id', '=', $id)->update($semestreNuevosDatos);
+        $semestre = Semestre::find($id);
+        $semestre->semestre = $request->semestre;
+        $semestre->save();
 
         return redirect('semestre');
     }

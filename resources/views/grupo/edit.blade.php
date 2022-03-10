@@ -18,7 +18,7 @@
     <div class="col">
         <div class="mb-3">
             <label class="form-label">{{'Grupo'}}
-                <input type="text" class="form-control" name="grupo" value="{{ $grupoDatos->grupo }}" required>
+                <input type="text" class="form-control" name="grupo" value="{{ $grupoDatos->grupo }}" required maxlength="100">
             </label>
         </div> 
         <div class="mb-3">

@@ -14,7 +14,7 @@
 
         <div class="mb-3">
         <label class="form-label">{{'Turno'}}
-            <input type="text" class="form-control" name="turno" value="{{ $turnoDatos->turno }}" required>
+            <input type="text" class="form-control" name="turno" value="{{ $turnoDatos->turno }}" required maxlength="10">
         </label>
         </div>
         

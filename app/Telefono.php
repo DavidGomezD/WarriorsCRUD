@@ -10,12 +10,4 @@ class Telefono extends Model
     public function estudiante(){
         return $this->belongsTo('App\Estudiante');
     }
-
-    public function guardar($request, $estudianteId)
-    {
-        $telefono = new Telefono;
-        $telefono->estudiante_id = $estudianteId;
-        $telefono->telefono = $request->telefono;
-        $telefono->save();
-    }
 }
