@@ -23,10 +23,15 @@ class EstudianteController extends Controller
 
     public function store(Request $request)
     {
-        //Valida 
+        //Valida los datos de $request
         $validated = $request->validate([
+            'nombre' => 'required|max:50',
+            'apellido_paterno' => 'required|max:50',
+            'apellido_materno' => 'required|max:50',
+            'fecha_nacimiento' => 'required|date',
+            'telefono' => 'required|numeric',
             //Correo formulario unico: tabla correos, campo correo
-            'correo' => 'required|unique:correos,correo|max:320',
+            'correo' => 'required|unique:correos,correo|max:320|email',
         ]);
 
         $estudiante = new Estudiante;
@@ -49,14 +54,35 @@ class EstudianteController extends Controller
         //Si el correo del formulario es diferente al correo del estudiante actual
         if($request->correo != $estudiante->correo->correo){
             
-            //El correo si se actualizo 
+            //El correo si se actualizo, ser revisa el campo unico
             
-            //Valida el nuevo correo
+            //Valida los datos del $request
             $validated = $request->validate([
+                'nombre' => 'required|max:50',
+                'apellido_paterno' => 'required|max:50',
+                'apellido_materno' => 'required|max:50',
+                'fecha_nacimiento' => 'required|date',
+                'telefono' => 'required|numeric',
                 //Correo formulario unico: tabla correos, campo correo
-                'correo' => 'required|unique:correos,correo|max:320',
+                'correo' => 'required|unique:correos,correo|max:320|email',
             ]);
-            
+
+        }else{
+
+            //El correo no se actualizo, no se revisa el campo unico.
+            //Ya que el correo es el mismo que el anterior mandaria un error. 
+
+            //Valida los datos del $request
+            $validated = $request->validate([
+                'nombre' => 'required|max:50',
+                'apellido_paterno' => 'required|max:50',
+                'apellido_materno' => 'required|max:50',
+                'fecha_nacimiento' => 'required|date',
+                'telefono' => 'required|numeric',
+                //Correo formulario unico: tabla correos, campo correo
+                'correo' => 'required|max:320|email',
+            ]);
+
         }
 
         $estudiante->actualizarDatosEstudiante($request);

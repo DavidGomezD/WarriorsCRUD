@@ -16,16 +16,25 @@
                 <div class="mb-3">
                     <label class="form-label">{{'Nombre'}}
                         <input type="text" class="form-control" name="nombre" value="{{ $estudianteDatos->nombre }}" required required maxlength="50">
+                        @error('nombre')
+                        <div class="alert alert-danger mt-1">{{ $message }}</div>
+                        @enderror
                     </label>
                 </div>
                 <div class="mb-3">
                     <label class="form-label">{{'Apellido Paterno'}}
                         <input type="text" class="form-control" name="apellido_paterno" value="{{ $estudianteDatos->apellido_paterno }}" required required maxlength="50">
+                        @error('apellido_paterno')
+                        <div class="alert alert-danger mt-1">{{ $message }}</div>
+                        @enderror
                     </label>
                 </div>
                 <div class="mb-3">
                     <label class="form-label">{{'Apellido Materno'}}
                         <input type="text" class="form-control" name="apellido_materno" value="{{ $estudianteDatos->apellido_materno }}" required required maxlength="50">
+                        @error('apellido_materno')
+                        <div class="alert alert-danger mt-1">{{ $message }}</div>
+                        @enderror
                     </label>
                 </div>
             </div>
@@ -33,11 +42,17 @@
                 <div class="mb-3">
                     <label class="form-label"> {{'Fecha de Nacimiento'}} 
                         <input type="date" class="form-control" name="fecha_nacimiento" value="{{ $estudianteDatos->fecha->fecha_nacimiento }}" required>
+                        @error('fecha_nacimiento')
+                        <div class="alert alert-danger mt-1">{{ $message }}</div>
+                        @enderror
                     </label>
                 </div>
                 <div class="mb-3">
                     <label class="form-label"> {{'Teléfono'}} 
                         <input type="number" class="form-control" name="telefono" value="{{ $estudianteDatos->telefono->telefono }}" required>
+                        @error('telefono')
+                            <div class="alert alert-danger mt-1">{{ $message }}</div>
+                        @enderror
                     </label>
                 </div>
                 <div class="mb-3">

@@ -7,7 +7,6 @@
         <h3>
             Nuevo estudiante
         </h3>
-    <!--{{ $errors }}-->
     </div>
     
     <form action= "{{url('/estudiante')}}" method="post" enctype="multipart/form-data">
@@ -16,38 +15,53 @@
             <div class="col">
                 <div class="mb-3">
                     <label class="form-label"> {{'Nombre'}} 
-                    <input type="text" class="form-control" name="nombre" required maxlength="50">
+                    <input type="text" class="form-control" name="nombre" value="{{old('nombre')}}" required maxlength="50">
+                    @error('nombre')
+                        <div class="alert alert-danger mt-1">{{ $message }}</div>
+                    @enderror
                     </label>
                 </div>
                 <div class="mb-3">
                     <label class="form-label"> {{'Apellido Paterno'}} 
-                    <input type="text" class="form-control" name="apellido_paterno" required maxlength="50">
+                    <input type="text" class="form-control" name="apellido_paterno" value="{{old('apellido_paterno')}}" required maxlength="50">
+                    @error('apellido_paterno')
+                        <div class="alert alert-danger mt-1">{{ $message }}</div>
+                    @enderror
                     </label>
                 </div>
                 <div class="mb-3">
                     <label class="form-label"> {{'Apellido Materno'}} 
-                    <input type="text" class="form-control" name="apellido_materno" required maxlength="50">
+                    <input type="text" class="form-control" name="apellido_materno" value="{{old('apellido_materno')}}" required maxlength="50">
+                    @error('apellido_materno')
+                        <div class="alert alert-danger mt-1">{{ $message }}</div>
+                    @enderror
                     </label>
                 </div>
             </div>
             <div class="col">
                 <div class="mb-3">
                     <label class="form-label"> {{'Fecha de Nacimiento'}} 
-                        <input type="date" class="form-control" name="fecha_nacimiento" required>
+                        <input type="date" class="form-control" name="fecha_nacimiento" value="{{old('fecha_nacimiento')}}" required>
+                        @error('fecha_nacimiento')
+                            <div class="alert alert-danger mt-1">{{ $message }}</div>
+                        @enderror
                     </label>
                 </div>
                 <div class="mb-3">
                     <label class="form-label"> {{'Teléfono'}} 
-                        <input type="number" class="form-control" name="telefono" required>
+                        <input type="number" class="form-control" name="telefono" value="{{old('telefono')}}" required>
+                        @error('telefono')
+                            <div class="alert alert-danger mt-1">{{ $message }}</div>
+                        @enderror
                     </label>
                 </div>
                 <div class="mb-3">
                     <label class="form-label"> {{'Correo'}} 
-                        <input type="email" class="form-control" name="correo" required maxlength="320">
+                        <input type="email" class="form-control" name="correo" value="{{old('correo')}}" required maxlength="320">
+                        @error('correo')
+                            <div class="alert alert-danger mt-1">{{ $message }}</div>
+                        @enderror
                     </label>
-                    @error('correo')
-                        <div class="alert alert-danger">{{ $message }}</div>
-                    @enderror
                 </div>
             </div>
         </div>
