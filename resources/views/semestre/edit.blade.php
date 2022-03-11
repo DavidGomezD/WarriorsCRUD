@@ -16,6 +16,9 @@
             <label class="form-label">{{'Semestre'}}
                 <input type="text" class="form-control" name="semestre" value="{{ $semestreDatos->semestre }}" required maxlength="30">
             </label>
+            @error('semestre')
+                <div class="alert alert-danger mt-1">{{ $message }}</div>
+            @enderror
         </div>
         
         <button type="submit" class="btn btn-success">Guardar</button> 

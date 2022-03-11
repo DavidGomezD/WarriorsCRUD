@@ -13,9 +13,12 @@
         {{ method_field('PATCH') }}
 
         <div class="mb-3">
-        <label class="form-label">{{'Turno'}}
-            <input type="text" class="form-control" name="turno" value="{{ $turnoDatos->turno }}" required maxlength="10">
-        </label>
+            <label class="form-label">{{'Turno'}}
+                <input type="text" class="form-control" name="turno" value="{{ $turnoDatos->turno }}" required maxlength="10">
+            </label>
+            @error('turno')
+                <div class="alert alert-danger mt-1">{{ $message }}</div>
+            @enderror
         </div>
         
         <button type="submit" class="btn btn-success">Guardar</button> 

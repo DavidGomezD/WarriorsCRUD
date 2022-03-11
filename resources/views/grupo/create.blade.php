@@ -7,14 +7,16 @@
         <h3>
             Nuevo grupo
         </h3>
-    <!--{{ $errors }}-->
     </div>
     
     <form action= "{{url('/grupo')}}" method="post" enctype="multipart/form-data">
     {{ csrf_field() }}
         <div class="mb-3">
             <label class="form-label"> {{'Grupo'}} 
-            <input type="text" class="form-control" name="grupo" required maxlength="100">
+            <input type="text" class="form-control" name="grupo" value="{{old('grupo')}}" required maxlength="100">
+            @error('grupo')
+                <div class="alert alert-danger mt-1">{{ $message }}</div>
+            @enderror
             </label>
         </div>
 
@@ -26,6 +28,9 @@
                     <option value="{{$turno->id}}">{{$turno->turno}}</option>
                     @endforeach
                 </select>
+                @error('turno_id')
+                    <div class="alert alert-danger mt-1">{{ $message }}</div>
+                @enderror
             </div>
         </div>
         <div class="mb-3">
@@ -36,6 +41,9 @@
                     <option value="{{$semestre->id}}">{{$semestre->semestre}}</option>
                     @endforeach
                 </select>
+                @error('semestre_id')
+                    <div class="alert alert-danger mt-1">{{ $message }}</div>
+                @enderror
             </div>
         </div>
         

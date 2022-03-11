@@ -23,6 +23,11 @@ class TurnoController extends Controller
 
     public function store(Request $request)
     {
+        //Valida los datos de $request
+        $validated = $request->validate([
+            'turno' => 'required|max:10'
+        ]);
+
         $turno = new Turno;
         $turno->guardar($request);
 
@@ -41,6 +46,11 @@ class TurnoController extends Controller
 
     public function update(Request $request, $id)
     {
+        //Valida los datos de $request
+        $validated = $request->validate([
+            'turno' => 'required|max:10'
+        ]);
+        
         $turno = Turno::find($id);
         $turno->turno = $request->turno;
         $turno->save();

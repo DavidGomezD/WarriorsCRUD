@@ -26,6 +26,11 @@ class SemestreController extends Controller
     //Guarda el semestre en tabla semestres
     public function store(Request $request)
     {
+        //Valida los datos de $request
+        $validated = $request->validate([
+            'semestre' => 'required|max:30'
+        ]);
+
         $semestre = new Semestre;
         $semestre->guardar($request);
 
@@ -45,6 +50,11 @@ class SemestreController extends Controller
     //Actualiza
     public function update(Request $request, $id)
     {
+        //Valida los datos de $request
+        $validated = $request->validate([
+            'semestre' => 'required|max:30'
+        ]);
+        
         $semestre = Semestre::find($id);
         $semestre->semestre = $request->semestre;
         $semestre->save();

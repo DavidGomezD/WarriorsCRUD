@@ -37,6 +37,13 @@ class GrupoController extends Controller
     //Guarda el grupo en la tabla grupos
     public function store(Request $request)
     {
+        //Valida los datos del $request
+        $validated = $request->validate([
+            'grupo' => 'required|max:100',
+            'turno_id' => 'required|numeric',
+            'semestre_id' => 'required|numeric',
+        ]);
+
         $guardar = new Grupo;
         $guardar->guardar($request);
 
@@ -64,6 +71,13 @@ class GrupoController extends Controller
     //Actualiza
     public function update(Request $request, $id)
     {
+        //Valida los datos del $request 
+        $validated = $request->validate([
+            'grupo' => 'required|max:100',
+            'turno_id' => 'required|numeric',
+            'semestre_id' => 'required|numeric',
+        ]);
+
         $grupo = Grupo::find($id);
         $grupo->grupo = $request->grupo;
         $grupo->semestre_id = $request->semestre_id;
