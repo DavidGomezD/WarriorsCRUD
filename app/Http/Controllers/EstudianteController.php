@@ -31,7 +31,7 @@ class EstudianteController extends Controller
             'fecha_nacimiento' => 'required|date',
             'telefono' => 'required|numeric',
             //Correo formulario unico: tabla correos, campo correo
-            'correo' => 'required|unique:correos,correo|max:320|email',
+            'correo' => 'required|unique:correos,correo|max:320|email|regex:/^[a-z0-9_.]{6,64}@[a-z0-9-.]{2,251}\.com$/',
         ]);
 
         $estudiante = new Estudiante;
@@ -64,7 +64,7 @@ class EstudianteController extends Controller
                 'fecha_nacimiento' => 'required|date',
                 'telefono' => 'required|numeric',
                 //Correo formulario unico: tabla correos, campo correo
-                'correo' => 'required|unique:correos,correo|max:320|email',
+                'correo' => 'required|unique:correos,correo|max:320|email|regex:/^[a-z0-9_.]{6,64}@[a-z0-9-.]{2,251}\.com$/',
             ]);
 
         }else{
@@ -80,7 +80,7 @@ class EstudianteController extends Controller
                 'fecha_nacimiento' => 'required|date',
                 'telefono' => 'required|numeric',
                 //Correo formulario unico: tabla correos, campo correo
-                'correo' => 'required|max:320|email',
+                'correo' => 'required|max:320|email|regex:/^[a-z0-9_.]{6,64}@[a-z0-9-.]{2,251}\.com$/',
             ]);
 
         }
