@@ -39,9 +39,9 @@ class GrupoController extends Controller
     {
         //Valida los datos del $request
         $validated = $request->validate([
-            'grupo' => 'required|max:100',
-            'turno_id' => 'required|numeric',
-            'semestre_id' => 'required|numeric',
+            'grupo' => 'required|max:100|regex:/^.{1,100}$/', // el " . " es cualquier caracter menos nueva linea (enter)
+            'turno_id' => 'required|numeric|regex:/^[1-9]{1}$/', // solo hay 3 turnos, se deja 6 de margen de error (alteración de tabla)
+            'semestre_id' => 'required|numeric|regex:/^[0-9]{1,2}$/', //solo hay 12 semestres aprox, se deja 88 de margen de error (alteración de tabla)
         ]);
 
         $guardar = new Grupo;
@@ -73,9 +73,9 @@ class GrupoController extends Controller
     {
         //Valida los datos del $request 
         $validated = $request->validate([
-            'grupo' => 'required|max:100',
-            'turno_id' => 'required|numeric',
-            'semestre_id' => 'required|numeric',
+            'grupo' => 'required|max:100|regex:/^.{1,100}$/', // el " . " es cualquier caracter menos nueva linea (enter)
+            'turno_id' => 'required|numeric|regex:/^[1-9]{1}$/', // solo hay 3 turnos, se deja 6 de margen de error (alteración de tabla)
+            'semestre_id' => 'required|numeric|regex:/^[0-9]{1,18}$/', //solo hay 12 semestres aprox, se deja 88 de margen de error (alteración de tabla)
         ]);
 
         $grupo = Grupo::find($id);

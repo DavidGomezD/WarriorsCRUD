@@ -25,7 +25,7 @@ class TurnoController extends Controller
     {
         //Valida los datos de $request
         $validated = $request->validate([
-            'turno' => 'required|max:10|regex:/^[A-Z]{1}[a-z]{1,9}$/'
+            'turno' => 'required|max:10|unique:turnos,turno|regex:/^[A-Z]{1}[a-z]{1,9}$/'
         ]);
 
         $turno = new Turno;
@@ -48,7 +48,7 @@ class TurnoController extends Controller
     {
         //Valida los datos de $request
         $validated = $request->validate([
-            'turno' => 'required|max:10|regex:/^[A-Z]{1}[a-z]{1,9}$/'
+            'turno' => 'required|max:10|unique:turnos,turno|regex:/^[A-Z]{1}[a-z]{1,9}$/'
         ]);
         
         $turno = Turno::find($id);
