@@ -14,7 +14,7 @@
     {{ csrf_field() }}
         <div class="mb-3">
             <label class="form-label"> {{'Semestre'}} 
-            <input type="text" class="form-control" name="semestre" value="{{old('semestre')}}" required maxlength="30">
+            <input type="text" class="form-control" name="semestre" value="{{old('semestre')}}" required maxlength="20">
             </label>
             @error('semestre')
                 <div class="alert alert-danger mt-1">{{ $message }}</div>

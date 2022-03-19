@@ -16,7 +16,7 @@ class CreateSemestresTable extends Migration
         Schema::create('semestres', function (Blueprint $table) {
             $table->bigIncrements('id');
             //David: 0 a 255 valores de unsignedTinyInteger
-            $table->string('semestre', 30)->unique(); 
+            $table->string('semestre', 20)->unique(); 
             $table->timestamps();
             });
             
