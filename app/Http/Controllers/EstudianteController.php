@@ -25,11 +25,11 @@ class EstudianteController extends Controller
     {
         //Valida los datos de $request
         $validated = $request->validate([
-            'nombre' => 'required|max:50',
-            'apellido_paterno' => 'required|max:50',
-            'apellido_materno' => 'required|max:50',
-            'fecha_nacimiento' => 'required|date',
-            'telefono' => 'required|numeric',
+            'nombre' => 'required|max:50|regex:/^[A-ZÁÉÍÓÚ]{1}[a-záéíóú]{1,50}$/',
+            'apellido_paterno' => 'required|max:50|regex:/^[A-ZÁÉÍÓÚ]{1}[a-záéíóú]{1,50}$/',
+            'apellido_materno' => 'required|max:50|regex:/^[A-ZÁÉÍÓÚ]{1}[a-záéíóú]{1,50}$/',
+            'fecha_nacimiento' => 'required|date|regex:/^[0-9]{4}\-[0-9]{2}\-[0-9]{2}$/',
+            'telefono' => 'required|numeric|regex:/^55[0-9]{8}$/',
             //Correo formulario unico: tabla correos, campo correo
             'correo' => 'required|unique:correos,correo|max:320|email|regex:/^[a-z0-9_.]{6,64}@[a-z0-9-.]{2,251}\.com$/',
         ]);
@@ -58,11 +58,11 @@ class EstudianteController extends Controller
             
             //Valida los datos del $request
             $validated = $request->validate([
-                'nombre' => 'required|max:50',
-                'apellido_paterno' => 'required|max:50',
-                'apellido_materno' => 'required|max:50',
-                'fecha_nacimiento' => 'required|date',
-                'telefono' => 'required|numeric',
+                'nombre' => 'required|max:50|regex:/^[A-ZÁÉÍÓÚ]{1}[a-záéíóú]{1,50}$/',
+                'apellido_paterno' => 'required|max:50|regex:/^[A-ZÁÉÍÓÚ]{1}[a-záéíóú]{1,50}$/',
+                'apellido_materno' => 'required|max:50|regex:/^[A-ZÁÉÍÓÚ]{1}[a-záéíóú]{1,50}$/',
+                'fecha_nacimiento' => 'required|date|regex:/^[0-9]{4}\-[0-9]{2}\-[0-9]{2}$/',
+                'telefono' => 'required|numeric|regex:/^55[0-9]{8}$/',
                 //Correo formulario unico: tabla correos, campo correo
                 'correo' => 'required|unique:correos,correo|max:320|email|regex:/^[a-z0-9_.]{6,64}@[a-z0-9-.]{2,251}\.com$/',
             ]);
@@ -74,11 +74,11 @@ class EstudianteController extends Controller
 
             //Valida los datos del $request
             $validated = $request->validate([
-                'nombre' => 'required|max:50',
-                'apellido_paterno' => 'required|max:50',
-                'apellido_materno' => 'required|max:50',
-                'fecha_nacimiento' => 'required|date',
-                'telefono' => 'required|numeric',
+                'nombre' => 'required|max:50|regex:/^[A-ZÁÉÍÓÚ]{1}[a-záéíóú]{1,50}$/',
+                'apellido_paterno' => 'required|max:50|regex:/^[A-ZÁÉÍÓÚ]{1}[a-záéíóú]{1,50}$/',
+                'apellido_materno' => 'required|max:50|regex:/^[A-ZÁÉÍÓÚ]{1}[a-záéíóú]{1,50}$/',
+                'fecha_nacimiento' => 'required|date|regex:/^[0-9]{4}\-[0-9]{2}\-[0-9]{2}$/',
+                'telefono' => 'required|numeric|regex:/^55[0-9]{8}$/',
                 //Correo formulario unico: tabla correos, campo correo
                 'correo' => 'required|max:320|email|regex:/^[a-z0-9_.]{6,64}@[a-z0-9-.]{2,251}\.com$/',
             ]);
