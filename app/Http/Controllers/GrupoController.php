@@ -40,8 +40,8 @@ class GrupoController extends Controller
         //Valida los datos del $request
         $validated = $request->validate([
             'grupo' => 'required|max:100|regex:/^.{1,100}$/', // el " . " es cualquier caracter menos nueva linea (enter)
-            'turno_id' => 'required|numeric|regex:/^[1-9]{1}$/', // solo hay 2 turnos y el limite es 9 en la BD
-            'semestre_id' => 'required|numeric|regex:/^[0-9]{1,2}$/', //solo hay 12 semestres aprox y el limite es 99 en la BD
+            'turno_id' => 'required|numeric|regex:/^[0-9]+$/', 
+            'semestre_id' => 'required|numeric|regex:/^[0-9]+$/',
         ]);
 
         $guardar = new Grupo;
@@ -74,8 +74,8 @@ class GrupoController extends Controller
         //Valida los datos del $request 
         $validated = $request->validate([
             'grupo' => 'required|max:100|regex:/^.{1,100}$/', // el " . " es cualquier caracter menos nueva linea (enter)
-            'turno_id' => 'required|numeric|regex:/^[1-9]{1}$/', // solo hay 2 turnos y el limite es 9 en la BD
-            'semestre_id' => 'required|numeric|regex:/^[0-9]{1,18}$/', //solo hay 12 semestres aprox y el limite es 99 en la BD
+            'turno_id' => 'required|numeric|regex:/^[0-9]+$/',
+            'semestre_id' => 'required|numeric|regex:/^[0-9]+$/',
         ]);
 
         $grupo = Grupo::find($id);

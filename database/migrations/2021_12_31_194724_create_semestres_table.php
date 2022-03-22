@@ -14,7 +14,7 @@ class CreateSemestresTable extends Migration
     public function up()
     {
         Schema::create('semestres', function (Blueprint $table) {
-            $table->tinyIncrements('id', 99);
+            $table->smallIncrements('id'); //Limite 32767 (2 bytes)
             //David: 0 a 255 valores de unsignedTinyInteger
             $table->string('semestre', 20)->unique(); 
             $table->timestamps();

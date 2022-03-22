@@ -34,6 +34,12 @@ class EstudianteGrupoController extends Controller
     //Edita la tabla grupos añadiendo o eliminando un nuevo estudiante
     public function update(Request $request, $id)
     {
+        //Valida los datos del $request 
+        $validated = $request->validate([
+            'estudiante_id' => 'required|numeric|regex:/^[0-9]+$/',
+            'modificacion' => 'required|numeric|regex:/^[1-2]{1}$/',
+        ]);
+
         $grupo = Grupo::find($id);
 
         if ($request->modificacion == "1") {

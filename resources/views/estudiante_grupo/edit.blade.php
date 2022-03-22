@@ -14,15 +14,18 @@
 
     <div class="mb-3">
         <label class="form-label" for="modificacion">Selecciona la modificación</label>
-        <select class="form-select" id="modificacion" name="modificacion">
+        <select class="form-select" id="modificacion" name="modificacion" required>
             <option value="1">Inscribir estudiante</option>
             <option value="2">Dar de baja estudiante</option>
         </select>
+        @error('modificacion')
+            <div class="alert alert-danger mt-1">{{ $message }}</div>
+        @enderror
     </div>
 
     <div class="mb-3">
         <label class="form-label" for="estudiante_id">Selecciona al estudiante</label>
-        <select class="form-select" id="estudiante_id" name="estudiante_id">
+        <select class="form-select" id="estudiante_id" name="estudiante_id" required>
             @foreach($estudiantes as $estudiante)
                 <option value="{{$estudiante->id}}">
                     {{$estudiante->nombre.
@@ -33,6 +36,9 @@
                 </option>
              @endforeach
         </select>
+        @error('estudiante_id')
+            <div class="alert alert-danger mt-1">{{ $message }}</div>
+        @enderror
     </div>
         
     <button type="submit" class="btn btn-primary mt-1">Modificar</button> 
