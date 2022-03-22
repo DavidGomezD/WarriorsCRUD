@@ -49,7 +49,7 @@
                 </div>
                 <div class="mb-3">
                     <label class="form-label"> {{'Teléfono'}} 
-                        <input type="number" class="form-control" name="telefono" value="{{ $estudianteDatos->telefono->telefono }}" required>
+                        <input type="tel" class="form-control" name="telefono" value="{{ $estudianteDatos->telefono->telefono }}" required pattern="^55[0-9]{8}$">
                         @error('telefono')
                             <div class="alert alert-danger mt-1">{{ $message }}</div>
                         @enderror
