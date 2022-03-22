@@ -15,7 +15,7 @@
             <div class="col">
                 <div class="mb-3">
                     <label class="form-label"> {{'Nombre'}} 
-                    <input type="text" class="form-control" name="nombre" value="{{old('nombre')}}" required maxlength="50">
+                    <input type="text" class="form-control" name="nombre" value="{{old('nombre')}}" required maxlength="50" pattern="^[A-ZÁÉÍÓÚ]{1}[a-záéíóú]{1,50}$">
                     @error('nombre')
                         <div class="alert alert-danger mt-1">{{ $message }}</div>
                     @enderror
@@ -23,7 +23,7 @@
                 </div>
                 <div class="mb-3">
                     <label class="form-label"> {{'Apellido Paterno'}} 
-                    <input type="text" class="form-control" name="apellido_paterno" value="{{old('apellido_paterno')}}" required maxlength="50">
+                    <input type="text" class="form-control" name="apellido_paterno" value="{{old('apellido_paterno')}}" required maxlength="50" pattern="^[A-ZÁÉÍÓÚ]{1}[a-záéíóú]{1,50}$">
                     @error('apellido_paterno')
                         <div class="alert alert-danger mt-1">{{ $message }}</div>
                     @enderror
@@ -31,7 +31,7 @@
                 </div>
                 <div class="mb-3">
                     <label class="form-label"> {{'Apellido Materno'}} 
-                    <input type="text" class="form-control" name="apellido_materno" value="{{old('apellido_materno')}}" required maxlength="50">
+                    <input type="text" class="form-control" name="apellido_materno" value="{{old('apellido_materno')}}" required maxlength="50" pattern="^[A-ZÁÉÍÓÚ]{1}[a-záéíóú]{1,50}$">
                     @error('apellido_materno')
                         <div class="alert alert-danger mt-1">{{ $message }}</div>
                     @enderror
@@ -57,7 +57,7 @@
                 </div>
                 <div class="mb-3">
                     <label class="form-label"> {{'Correo'}} 
-                        <input type="email" class="form-control" name="correo" value="{{old('correo')}}" required maxlength="320">
+                        <input type="email" class="form-control" name="correo" value="{{old('correo')}}" required maxlength="320" pattern="^[a-z0-9_.]{6,64}@[a-z0-9-.]{2,251}\.com$">
                         @error('correo')
                             <div class="alert alert-danger mt-1">{{ $message }}</div>
                         @enderror
