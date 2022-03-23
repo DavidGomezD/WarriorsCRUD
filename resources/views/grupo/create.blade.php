@@ -13,7 +13,7 @@
     {{ csrf_field() }}
         <div class="mb-3">
             <label class="form-label"> {{'Grupo'}} 
-            <input type="text" class="form-control" name="grupo" value="{{old('grupo')}}" required maxlength="100">
+            <input type="text" class="form-control" name="grupo" value="{{old('grupo')}}" required maxlength="100" pattern="^.{1,100}$">
             @error('grupo')
                 <div class="alert alert-danger mt-1">{{ $message }}</div>
             @enderror

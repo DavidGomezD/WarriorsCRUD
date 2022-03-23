@@ -28,7 +28,7 @@ class SemestreController extends Controller
     {
         //Valida los datos de $request
         $validated = $request->validate([
-            'semestre' => 'required|max:20|regex:/^[A-Z]{1}[a-z]{4,10} Semestre$/'
+            'semestre' => 'required|unique:semestres,semestre|max:20|regex:/^[A-Z]{1}[a-z]{4,10} Semestre$/'
         ]);
 
         $semestre = new Semestre;
@@ -52,7 +52,7 @@ class SemestreController extends Controller
     {
         //Valida los datos de $request
         $validated = $request->validate([
-            'semestre' => 'required|max:20|regex:/^[A-Z]{1}[a-z]{4,10} Semestre$/'
+            'semestre' => 'required|unique:semestres,semestre|max:20|regex:/^[A-Z]{1}[a-z]{4,10} Semestre$/'
         ]);
         
         $semestre = Semestre::find($id);

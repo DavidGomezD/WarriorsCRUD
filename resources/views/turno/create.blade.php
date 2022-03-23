@@ -13,7 +13,7 @@
     {{ csrf_field() }}
         <div class="mb-3">
             <label class="form-label"> {{'Turno'}} 
-            <input type="text" class="form-control" name="turno" value="{{old('turno')}}" required maxlength="10">
+            <input type="text" class="form-control" name="turno" value="{{old('turno')}}" required maxlength="10" pattern="^[A-Z]{1}[a-z]{1,9}$">
             </label>
             @error('turno')
                 <div class="alert alert-danger mt-1">{{ $message }}</div>

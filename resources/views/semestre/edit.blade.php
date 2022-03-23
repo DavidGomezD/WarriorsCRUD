@@ -14,7 +14,7 @@
 
         <div class="mb-3">
             <label class="form-label">{{'Semestre'}}
-                <input type="text" class="form-control" name="semestre" value="{{ $semestreDatos->semestre }}" required maxlength="20">
+                <input type="text" class="form-control" name="semestre" value="{{ $semestreDatos->semestre }}" required maxlength="20" pattern="^[A-Z]{1}[a-z]{4,10} Semestre$">
             </label>
             @error('semestre')
                 <div class="alert alert-danger mt-1">{{ $message }}</div>
